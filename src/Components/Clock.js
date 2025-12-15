@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import Button from './Button';
 
 class Clock extends React.Component {
@@ -8,50 +7,56 @@ class Clock extends React.Component {
   //   this.state = {date: new Date(),locale:'bn-BD'};
   //   this.handleClick = this.handleClick.bind(this);
   // }
-  
+
   state = {
     date: new Date(),
     locale: "bn-BD"
   };
 
 
-  componentDidMount(){
+  componentDidMount() {
     this.clockTimer = setInterval(() => this.tick(), 1000);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(this.clockTimer);
-  } 
-
-  tick(){
-    this.setState({date: new Date()});
   }
 
-  handleClick=(locale)=>{
-    this.setState({locale});
+  tick() {
+    this.setState({ date: new Date() });
+  }
+
+  handleClick = (locale) => {
+    this.setState({ locale });
   }
 
 
-  render(){
-    console.log("Clock class render");
-    const{date,locale} = this.state;
+  render() {
+    const { date, locale } = this.state;
+    const nextLocale = locale === 'bn-BD' ? 'en-US' : 'bn-BD';
+    // let nextLocale;
+    // if (locale === 'bn-BD') {
+    //   nextLocale = 'en-US';
+    // } else {
+    //   nextLocale = 'bn-BD';
+    // }
     return (
       <>
         <h1 className="heading">
           <span className="text">{date.toLocaleTimeString(locale)}</span>
         </h1>
         {/* button type="button" onClick={this.handleClick.bind(this,'en-US')} */}
-        <Button chnage={this.handleClick} locale="en-US">
-          Click Here
-        </Button> 
+        <Button change={this.handleClick} locale={nextLocale}>
+
+        </Button>
       </>
-      
+
     );
   }
 
 }
 //const clock = new Clock();
 
-ReactDOM.createRoot(document.getElementById('root')).render(<Clock local="bn-BD"/>);
+//ReactDOM.createRoot(document.getElementById('root')).render(<Clock local="bn-BD"/>);
 
 export default Clock;

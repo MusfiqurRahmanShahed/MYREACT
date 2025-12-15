@@ -1,9 +1,9 @@
-import Clock from "./Components/Clock";
+import ClockList from "./Components/ClockList";
 
 function App() {
-  console.log("App rendered");
+  const cnt = [1,2,3];
   return (
-    <div><Clock> </Clock> </div>
+    <div><ClockList cnt={cnt}/> </div>
   );
 }
 
