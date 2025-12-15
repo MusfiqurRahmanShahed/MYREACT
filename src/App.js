@@ -1,9 +1,10 @@
-import ClockList from "./Components/ClockList";
+import Form from './Components/Form';
 
 function App() {
-  const cnt = [1,2,3];
+  //const cnt = [1,2,3];
   return (
-    <div><ClockList cnt={cnt}/> </div>
+    //<div><ClockList cnt={cnt}/> </div>
+    <div><Form/></div>
   );
 }
 
