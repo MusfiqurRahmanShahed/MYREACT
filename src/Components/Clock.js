@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import Button from './Button';
+
 class Clock extends React.Component {
   // constructor(props){
   //   super(props);
-  //   this.state = {date: new Date()};
+  //   this.state = {date: new Date(),locale:'bn-BD'};
+  //   this.handleClick = this.handleClick.bind(this);
   // }
   
   state = {
-    date: new Date()
+    date: new Date(),
+    locale: "bn-BD"
   };
 
 
@@ -23,11 +27,25 @@ class Clock extends React.Component {
     this.setState({date: new Date()});
   }
 
+  handleClick=(locale)=>{
+    this.setState({locale});
+  }
+
+
   render(){
+    console.log("Clock class render");
+    const{date,locale} = this.state;
     return (
-      <h1 className="heading">
-        <span className="text">{this.state.date.toLocaleTimeString(this.props.local)}</span>
-      </h1>
+      <>
+        <h1 className="heading">
+          <span className="text">{date.toLocaleTimeString(locale)}</span>
+        </h1>
+        {/* button type="button" onClick={this.handleClick.bind(this,'en-US')} */}
+        <Button chnage={this.handleClick} locale="en-US">
+          Click Here
+        </Button> 
+      </>
+      
     );
   }
 

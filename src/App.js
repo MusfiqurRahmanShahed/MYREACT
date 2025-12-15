@@ -1,8 +1,9 @@
 import Clock from "./Components/Clock";
 
 function App() {
+  console.log("App rendered");
   return (
-    <div><Clock local = "bn-BD"> </Clock> </div>
+    <div><Clock> </Clock> </div>
   );
 }
 
