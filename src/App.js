@@ -1,24 +1,40 @@
-import React from 'react';
-import Login from './Login';
-import Dashboard from './Dashboard';
-
+import React from "react";
+import ClickCounter from "./Components/ClickCounter";
+import Counter from "./Components/Counter";
+import Section from "./Components/Section";
+import ThemeContext from "./Contexts/themeContext";
 class App extends React.Component {
   state = {
-    isLoggedIn: false,
+    theme: "dark",
   };
-  handleLogin = () => {
-    this.setState({ isLoggedIn: true });
-  }
 
+  switchTheme = () => {
+    this.setState((prevState) => ({
+      theme: prevState.theme === "dark" ? "light" : "dark",
+    }));
+  };
   render() {
-    const { isLoggedIn } = this.state;
+    const { theme } = this.state;
     return (
       <div>
-        {/* <h1>ReactJS</h1>
-        <p>ReactJS is a JavaScript library for building user interfaces.</p> */}
-        {/* <Login onLogin={()=>alert('Logged in!')} /> */}
 
-        {isLoggedIn ? <Dashboard /> : (<Login onLogin={this.handleLogin} />)}
+        <Counter>
+          {(count, incrementCount) => (
+            <ClickCounter count={count} incrementCount={incrementCount} />
+          )}
+        </Counter>
+
+        {/* <Counter>
+        {(count, incrementCount) => (
+          <HoverCounter count={count} incrementCount={incrementCount} />
+
+        )}
+      </Counter> */}
+        <ThemeContext.Provider value={{theme , switchTheme: this.switchTheme}}>
+          {/* <Section theme={theme} /> */}
+          <Section />
+        </ThemeContext.Provider>
+
       </div>
     );
   }
