@@ -2,15 +2,13 @@ import React from 'react';
 import './App.css';
 
 class UserList extends React.Component {
-    //const { users, onDelete } = this.props;
-
 
     render() {
+        const {onEdit } = this.props;
         return (
             <div className="user-list">
                 <h3>Users List</h3>
 
-                <button onClick={this.props.addUser}>Add User</button>
 
                 <table className="user-table">
                     <thead>
@@ -29,6 +27,11 @@ class UserList extends React.Component {
                                 <td>{user.userName}</td>
                                 <td>{user.role}</td>
                                 <td>
+                                    <button onClick={() => onEdit(user)}>
+                                        Edit
+                                    </button>
+                                    &nbsp;
+                                    &nbsp;
                                     <button onClick={() => this.props.onDelete(user.id)}>
                                         Delete
                                     </button>
