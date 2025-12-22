@@ -1,10 +1,10 @@
 import React from "react";
-import Layout from "./Components/LayoutComponentTwo";
+import Form from "./Hooks/React-hook-form";
 class App extends React.Component {
   render() {
     return (
       <div> 
-        <Layout/>
+        <Form/>
       </div> 
     );
   }

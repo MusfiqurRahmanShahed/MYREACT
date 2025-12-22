@@ -18,7 +18,7 @@ export default function LayoutComponentsOne(){
 
     // },[]);
 
-     const {onSmallScreen}= useWindowWidth();
+    const {onSmallScreen}= useWindowWidth();
     
     return (
         <div className={onSmallScreen ? 'Small':'Large'}>
