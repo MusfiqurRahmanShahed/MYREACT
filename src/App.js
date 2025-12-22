@@ -1,13 +1,13 @@
 import React from "react";
-import Todo from "./Components/Todo";
+import Layout from "./Components/LayoutComponentTwo";
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <Todo/>
-      </div>
+      <div> 
+        <Layout/>
+      </div> 
     );
   }
-}
+} 
 
-export default App;
+export default App;  
