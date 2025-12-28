@@ -1,10 +1,10 @@
 import React from "react";
-import Form from "./Hooks/React-hook-form";
+import HookForm from "./Hooks/React-hook-form";
 class App extends React.Component {
   render() {
     return (
       <div> 
-        <Form/>
+        <HookForm/>
       </div> 
     );
   }
